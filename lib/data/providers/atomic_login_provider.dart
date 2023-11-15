@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:atomic_sdk_flutter/atomic_session.dart';
 import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 import 'package:trifecta_app1/utils.dart';
@@ -25,7 +24,9 @@ Future<void> _login() async {
   await AACSession.enableDebugMode(3);
   await AACSession.setApiBaseUrl(secretConfig.apiUrl);
   await AACSession.initialise(
-      AtomicConfiguration.environmentId, secretConfig.apiKey);
+    AtomicConfiguration.environmentId,
+    secretConfig.apiKey,
+  );
   await AACSession.setSessionDelegate(_AACSessionDelegate());
 
   //await Future.delayed(const Duration(seconds: 5)); // for testing loading ui.
