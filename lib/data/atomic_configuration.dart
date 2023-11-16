@@ -51,9 +51,9 @@ class AtomicConfiguration {
     return jwtToken;
   }
 
-  static AACStreamContainerConfiguration _setConfig(
+  static AACStreamContainerConfiguration _getConfig(
     AACStreamContainerConfiguration config,
-    String? title,
+    String? header,
     String? footer,
   ) {
     config
@@ -70,26 +70,30 @@ class AtomicConfiguration {
         AACCustomString.cardListFooterMessage,
         footer,
       );
+    } else {
+      // To disable card list coast:
+      config.enabledUiElements &=
+          // ignore: invalid_assignment, argument_type_not_assignable
+          ~AACUIElement.cardListToast;
     }
-    if (title != null) {
+    if (header != null) {
       // Set Card Container Title
       config.setValueForCustomString(
         AACCustomString.cardListTitle,
-        title,
+        header,
       );
+    } else {
+      // To disable card list header:
+      config.enabledUiElements &=
+          // ignore: invalid_assignment, argument_type_not_assignable
+          ~AACUIElement.cardListHeader;
     }
-
-    // To disable card list header:
-    //config.enabledUiElements &= ~AACUIElement.cardListHeader;
-
-    // To disable card list coast:
-    //config.enabledUiElements &= ~AACUIElement.cardListToast;
 
     return config;
   }
 
   static AACSingleCardConfiguration getSingleCardConfiguration() {
-    return _setConfig(
+    return _getConfig(
       AACSingleCardConfiguration()..automaticallyLoadNextCard = true,
       null,
       null,
@@ -97,9 +101,9 @@ class AtomicConfiguration {
   }
 
   static AACStreamContainerConfiguration getStreamContainerConfiguration({
-    String? title,
+    String? header,
     String? footer,
   }) {
-    return _setConfig(AACStreamContainerConfiguration(), title, footer);
+    return _getConfig(AACStreamContainerConfiguration(), header, footer);
   }
 }

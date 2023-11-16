@@ -26,12 +26,12 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
       builder: (_) {
         if (_isSingle) {
           return const CardDialog(
-            containerId: AtomicConfiguration.containerId4,
+            containerId: AtomicConfiguration.containerId2,
             isSingle: true,
           );
         } else {
           return const CardDialog(
-            containerId: AtomicConfiguration.containerId1,
+            containerId: AtomicConfiguration.containerId2,
             isSingle: false,
           );
         }
@@ -43,9 +43,12 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
   Widget build(BuildContext context) {
     super.build(context);
     final screenSize = MediaQuery.of(context).size;
-    final cardCount = ref.watch(userMetricFutureProvider).whenOrNull(
+
+    final cardCount = ref
+            .watch(userMetricFutureProvider(AtomicConfiguration.containerId2))
+            .whenOrNull(
           data: (metrics) {
-            return metrics.totalCards;
+            return metrics.unseenCards;
           },
         ) ??
         0;
@@ -100,8 +103,9 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
           ),
           SizedBox(
             height: screenSize.height * 0.32,
+            width: screenSize.width * 0.9,
             child: AACSingleCardView(
-              containerId: AtomicConfiguration.containerId2,
+              containerId: AtomicConfiguration.containerId4,
               configuration: AtomicConfiguration.getSingleCardConfiguration(),
             ),
           ),
@@ -113,7 +117,10 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
               height: screenSize.width,
               child: AACStreamContainer(
                 containerId: AtomicConfiguration.containerId4,
-                configuration: AtomicConfiguration.getSingleCardConfiguration(),
+                configuration:
+                    AtomicConfiguration.getStreamContainerConfiguration(
+                  header: 'Horizontal cards',
+                ),
               ),
             ),
           ),

@@ -9,10 +9,13 @@ import 'package:trifecta_app1/utils.dart';
 
 // FutureProvider makes this only runs once even if ref.watch is called
 // multiple times.
+final _loginFutureProvider = FutureProvider<void>((ref) => _login());
+
 // FutureProvider will catch and handle errors for us using the AsyncValue.
-final userMetricFutureProvider = FutureProvider<AACUserMetrics>((ref) async {
-  await _login();
-  return AACSession.userMetrics(AtomicConfiguration.containerId1);
+final userMetricFutureProvider =
+    FutureProvider.family<AACUserMetrics, String>((ref, containerId) async {
+  ref.watch(_loginFutureProvider);
+  return AACSession.userMetrics(containerId);
 });
 
 Future<void> _login() async {

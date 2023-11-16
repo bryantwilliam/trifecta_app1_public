@@ -22,7 +22,7 @@ class ACCStreamContainerRVariableWidget extends StatelessWidget {
         runtimeVariableDelegate:
             runtimeVariablesEnabled ? _CardRuntimeVariableDelegate() : null,
         configuration: AtomicConfiguration.getStreamContainerConfiguration(
-          title: runtimeVariablesEnabled
+          header: runtimeVariablesEnabled
               ? 'Runtime variables: on'
               : 'Runtime variables: off',
           footer: 'Footer',

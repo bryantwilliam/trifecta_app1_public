@@ -16,7 +16,8 @@ class SingleStreamScreen extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
 
     return AsyncUserMetricsWidget(
-      asyncUserMetric: ref.watch(userMetricFutureProvider),
+      asyncUserMetric:
+          ref.watch(userMetricFutureProvider(AtomicConfiguration.containerId1)),
       onMetric: (metrics) {
         return ColoredBox(
           color: Theme.of(context).colorScheme.inversePrimary,

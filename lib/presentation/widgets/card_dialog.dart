@@ -33,9 +33,7 @@ class CardDialog extends StatelessWidget {
             : AACStreamContainer(
                 containerId: containerId,
                 configuration:
-                    AtomicConfiguration.getStreamContainerConfiguration(
-                  title: 'Seals',
-                ),
+                    AtomicConfiguration.getStreamContainerConfiguration(),
               ),
       ),
       actions: [
