@@ -76,22 +76,23 @@ class _ScreensViewState extends State<ScreensView> {
           ),
         ],
         onTap: (index) {
-          setState(() {
-            _screenIndex = index;
-          });
-          if (index == 2) {
+          if (index == 2 || _screenIndex == 2) {
+            // Doesn't animate if coming to or from the 3rd page.
             _coastController.animateTo(
-              beach: _screenIndex,
+              beach: index,
               duration: const Duration(microseconds: 1),
               curve: Curves.linear,
             );
           } else {
             _coastController.animateTo(
-              beach: _screenIndex,
+              beach: index,
               duration: const Duration(milliseconds: 500),
               curve: Curves.easeOutCubic,
             );
           }
+          setState(() {
+            _screenIndex = index;
+          });
         },
       ),
     );
