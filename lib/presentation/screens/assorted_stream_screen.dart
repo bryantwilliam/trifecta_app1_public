@@ -48,7 +48,7 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
             .watch(userMetricFutureProvider(AtomicConfiguration.containerId2))
             .whenOrNull(
           data: (metrics) {
-            return metrics.unseenCards;
+            return metrics.totalCards;
           },
         ) ??
         0;
@@ -68,7 +68,7 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
                 style: TextStyle(color: colorScheme.primary),
               ),
               Checkbox(
-                activeColor: colorScheme.inversePrimary,
+                activeColor: colorScheme.primary,
                 value: _isSingle,
                 onChanged: (value) {
                   setState(() {
@@ -84,7 +84,12 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
                 child: Badge(
                   // Badge has a offset by default that is too far away
                   offset: Offset.zero,
-                  backgroundColor: colorScheme.primary,
+                  backgroundColor: colorScheme.inversePrimary,
+                  textColor: Colors.black,
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 11,
+                  ),
                   isLabelVisible: cardCount > 0,
                   label: Text(cardCount.toString()),
                   child: IconButton(
@@ -94,7 +99,7 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
                     onPressed: () => _showCardDialog(context),
                     icon: Icon(
                       Icons.notifications,
-                      color: colorScheme.inverseSurface,
+                      color: colorScheme.primary,
                     ),
                   ),
                 ),
