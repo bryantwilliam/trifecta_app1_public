@@ -19,25 +19,7 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
   @override
   bool get wantKeepAlive => true;
   var _isSingle = true;
-
-  Future<void> _showCardDialog(BuildContext context) async {
-    return showDialog<void>(
-      context: context,
-      builder: (_) {
-        if (_isSingle) {
-          return const CardDialog(
-            containerId: AtomicConfiguration.containerId2,
-            isSingle: true,
-          );
-        } else {
-          return const CardDialog(
-            containerId: AtomicConfiguration.containerId2,
-            isSingle: false,
-          );
-        }
-      },
-    );
-  }
+  var _cardViewCount = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -106,21 +88,17 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
               ),
             ],
           ),
-          const Text('Two shrunken single card views'),
+          Text('$_cardViewCount shrunken single card views'),
           FittedBox(
             child: Row(
-              children: [
+              children: List<SingleCardView>.filled(
+                _cardViewCount,
                 SingleCardView(
                   height: screenSize.height * 0.32,
                   width: screenSize.width,
                   containerId: AtomicConfiguration.containerId4,
                 ),
-                SingleCardView(
-                  height: screenSize.height * 0.32,
-                  width: screenSize.width,
-                  containerId: AtomicConfiguration.containerId4,
-                ),
-              ],
+              ),
             ),
           ),
           const Text('One rotated stream container'),
@@ -136,6 +114,25 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
           ),
         ],
       ),
+    );
+  }
+
+  Future<void> _showCardDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (_) {
+        if (_isSingle) {
+          return const CardDialog(
+            containerId: AtomicConfiguration.containerId2,
+            isSingle: true,
+          );
+        } else {
+          return const CardDialog(
+            containerId: AtomicConfiguration.containerId2,
+            isSingle: false,
+          );
+        }
+      },
     );
   }
 }
