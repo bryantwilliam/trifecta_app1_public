@@ -106,27 +106,82 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
               ),
             ],
           ),
-          SizedBox(
-            height: screenSize.height * 0.32,
-            width: screenSize.width * 0.9,
-            child: AACSingleCardView(
-              containerId: AtomicConfiguration.containerId4,
-              configuration: AtomicConfiguration.getSingleCardConfiguration(),
+          const Text('Two shrunk single card views'),
+          FittedBox(
+            child: Row(
+              children: [
+                SizedBox(
+                  height: screenSize.height * 0.32,
+                  width: screenSize.width,
+                  child: AACSingleCardView(
+                    containerId: AtomicConfiguration.containerId4,
+                    configuration:
+                        AtomicConfiguration.getSingleCardConfiguration(),
+                  ),
+                ),
+                SizedBox(
+                  height: screenSize.height * 0.32,
+                  width: screenSize.width,
+                  child: AACSingleCardView(
+                    containerId: AtomicConfiguration.containerId4,
+                    configuration:
+                        AtomicConfiguration.getSingleCardConfiguration(),
+                  ),
+                ),
+              ],
             ),
           ),
+          const Text('One horizontal stream container'),
           RotatedBox(
             quarterTurns: 1,
             child: SizedBox(
               // Since it's rotated, width becomes height and height becomes width.
-              width: screenSize.height * 0.35,
+              width: screenSize.height * 0.3,
               height: screenSize.width,
               child: AACStreamContainer(
                 containerId: AtomicConfiguration.containerId4,
                 configuration:
                     AtomicConfiguration.getStreamContainerConfiguration(
-                  header: 'Horizontal cards',
+                  header: 'Horizontal list',
                 ),
               ),
+            ),
+          ),
+          const Text('Two shrunk stream containers'),
+          FittedBox(
+            child: Row(
+              children: [
+                RotatedBox(
+                  quarterTurns: 1,
+                  child: SizedBox(
+                    // Since it's rotated, width becomes height and height becomes width.
+                    width: screenSize.height * 0.34,
+                    height: screenSize.width,
+                    child: AACStreamContainer(
+                      containerId: AtomicConfiguration.containerId4,
+                      configuration:
+                          AtomicConfiguration.getStreamContainerConfiguration(
+                        header: 'Horizontal cards',
+                      ),
+                    ),
+                  ),
+                ),
+                RotatedBox(
+                  quarterTurns: 1,
+                  child: SizedBox(
+                    // Since it's rotated, width becomes height and height becomes width.
+                    width: screenSize.height * 0.34,
+                    height: screenSize.width,
+                    child: AACStreamContainer(
+                      containerId: AtomicConfiguration.containerId4,
+                      configuration:
+                          AtomicConfiguration.getStreamContainerConfiguration(
+                        header: 'Horizontal cards',
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
