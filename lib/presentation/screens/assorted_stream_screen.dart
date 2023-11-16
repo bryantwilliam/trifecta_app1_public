@@ -88,19 +88,20 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
               ),
             ],
           ),
-          Text('$_cardViewCount shrunken single card views'),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              if (_cardViewCount > 2)
-                IconButton(
-                  icon: const Icon(Icons.remove),
-                  onPressed: () => setState(() => _cardViewCount--),
-                )
-              else
-                Container(),
               IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: () => setState(() => _cardViewCount++))
+                icon: const Icon(Icons.remove),
+                onPressed: _cardViewCount > 2
+                    ? () => setState(() => _cardViewCount--)
+                    : null,
+              ),
+              Text('$_cardViewCount shrunken single card views'),
+              IconButton(
+                icon: const Icon(Icons.add),
+                onPressed: () => setState(() => _cardViewCount++),
+              ),
             ],
           ),
           FittedBox(
@@ -125,6 +126,10 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
                 RotatedStreamContainer(),
               ],
             ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 100),
+            child: Text('hi :)'),
           ),
         ],
       ),

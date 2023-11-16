@@ -13,7 +13,7 @@ class RotatedStreamContainer extends StatelessWidget {
       quarterTurns: 1,
       child: StreamContainer(
         // Since it's rotated, width becomes height and height becomes width.
-        width: screenSize.height * 0.315,
+        width: screenSize.height * 0.295,
         height: screenSize.width,
         containerId: AtomicConfiguration.containerId4,
         header: 'Horizontal list',
