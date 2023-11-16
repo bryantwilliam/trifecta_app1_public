@@ -147,7 +147,7 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
               ),
             ),
           ),
-          const Text('Two shrunk stream containers'),
+          const Text('Two shrunk horizontal stream containers'),
           FittedBox(
             child: Row(
               children: [
