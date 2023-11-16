@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 import 'package:trifecta_app1/data/providers/user_metric_future_provider.dart';
-import 'package:trifecta_app1/presentation/widgets/dialogs/card_dialog.dart';
 import 'package:trifecta_app1/presentation/widgets/atomic_containers/rotated_stream_container.dart';
 import 'package:trifecta_app1/presentation/widgets/atomic_containers/single_card_view.dart';
+import 'package:trifecta_app1/presentation/widgets/dialogs/card_dialog.dart';
 
 class AssortedStreamScreen extends ConsumerStatefulWidget {
   const AssortedStreamScreen({super.key});
