@@ -51,31 +51,33 @@ class AtomicConfiguration {
     return jwtToken;
   }
 
-  static AACSingleCardConfiguration getSingleCardConfiguration() {
-    final config = AACSingleCardConfiguration()
-      ..automaticallyLoadNextCard = true;
-    return config;
-  }
-
-  static AACStreamContainerConfiguration getConfiguration(String title) {
-    final config = AACStreamContainerConfiguration()
+  static AACStreamContainerConfiguration _setConfig(
+    AACStreamContainerConfiguration config,
+    String? title,
+    String? footer,
+  ) {
+    config
       ..pollingInterval = 5
       ..votingOption = AACVotingOption.both
       ..interfaceStyle = AACInterfaceStyle.automatic
       ..presentationStyle = AACPresentationStyle.withActionButton
       ..enabledUiElements = AACUIElement.defaultValue
-      // Set Card List title
-      ..setValueForCustomString(
-        AACCustomString.cardListTitle,
-        title,
-      )
-      // Set Footer
-      ..setValueForCustomString(
-        AACCustomString.cardListFooterMessage,
-        'footer message',
-      )
       // ignore: invalid_assignment
       ..enabledUiElements |= AACUIElement.cardListFooterMessage;
+    if (footer != null) {
+      // Set Card Container Footer
+      config.setValueForCustomString(
+        AACCustomString.cardListFooterMessage,
+        footer,
+      );
+    }
+    if (title != null) {
+      // Set Card Container Title
+      config.setValueForCustomString(
+        AACCustomString.cardListTitle,
+        title,
+      );
+    }
 
     // To disable card list header:
     //config.enabledUiElements &= ~AACUIElement.cardListHeader;
@@ -84,5 +86,20 @@ class AtomicConfiguration {
     //config.enabledUiElements &= ~AACUIElement.cardListToast;
 
     return config;
+  }
+
+  static AACSingleCardConfiguration getSingleCardConfiguration() {
+    return _setConfig(
+      AACSingleCardConfiguration()..automaticallyLoadNextCard = true,
+      null,
+      null,
+    ) as AACSingleCardConfiguration;
+  }
+
+  static AACStreamContainerConfiguration getStreamContainerConfiguration({
+    String? title,
+    String? footer,
+  }) {
+    return _setConfig(AACStreamContainerConfiguration(), title, footer);
   }
 }

@@ -1,30 +1,40 @@
 import 'package:atomic_sdk_flutter/atomic_single_card_view.dart';
 import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
-import 'package:trifecta_app1/presentation/widgets/card_reply_dialog.dart';
+import 'package:trifecta_app1/data/providers/user_metric_future_provider.dart';
+import 'package:trifecta_app1/presentation/widgets/card_dialog.dart';
 
-class AssortedStreamScreen extends StatefulWidget {
+class AssortedStreamScreen extends ConsumerStatefulWidget {
   const AssortedStreamScreen({super.key});
 
   @override
-  State<AssortedStreamScreen> createState() => _AssortedStreamScreenState();
+  ConsumerState<AssortedStreamScreen> createState() =>
+      _AssortedStreamScreenState();
 }
 
-class _AssortedStreamScreenState extends State<AssortedStreamScreen>
+class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
-
-  bool _useImageCard = false;
+  var _isSingle = true;
 
   Future<void> _showCardDialog(BuildContext context) async {
     return showDialog<void>(
       context: context,
       builder: (_) {
-        return CardReplyDialog(
-          useImageCard: _useImageCard,
-        );
+        if (_isSingle) {
+          return const CardDialog(
+            containerId: AtomicConfiguration.containerId4,
+            isSingle: true,
+          );
+        } else {
+          return const CardDialog(
+            containerId: AtomicConfiguration.containerId1,
+            isSingle: false,
+          );
+        }
       },
     );
   }
@@ -33,6 +43,14 @@ class _AssortedStreamScreenState extends State<AssortedStreamScreen>
   Widget build(BuildContext context) {
     super.build(context);
     final screenSize = MediaQuery.of(context).size;
+    final cardCount = ref.watch(userMetricFutureProvider).whenOrNull(
+          data: (metrics) {
+            return metrics.totalCards;
+          },
+        ) ??
+        0;
+
+    final colorScheme = Theme.of(context).colorScheme;
 
     // SingleChildScrollView is used to allow room for the datepicker to pop up.
     return SingleChildScrollView(
@@ -42,18 +60,41 @@ class _AssortedStreamScreenState extends State<AssortedStreamScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Use a container with image cards?'),
+              Text(
+                'Use a Single Card View for notifications?',
+                style: TextStyle(color: colorScheme.primary),
+              ),
               Checkbox(
-                value: _useImageCard,
+                activeColor: colorScheme.inversePrimary,
+                value: _isSingle,
                 onChanged: (value) {
                   setState(() {
-                    _useImageCard = value!;
+                    if (value != null) {
+                      _isSingle = value;
+                    }
                   });
                 },
               ),
-              ElevatedButton(
-                onPressed: () => _showCardDialog(context),
-                child: const Text('Send'),
+              SizedBox(
+                height: screenSize.height * 0.05,
+                width: screenSize.width * 0.1,
+                child: Badge(
+                  // Badge has a offset by default that is too far away
+                  offset: Offset.zero,
+                  backgroundColor: colorScheme.primary,
+                  isLabelVisible: cardCount > 0,
+                  label: Text(cardCount.toString()),
+                  child: IconButton(
+                    // IconButton has weird left and top padding by default
+                    padding: EdgeInsets.zero,
+                    iconSize: screenSize.width * 0.1,
+                    onPressed: () => _showCardDialog(context),
+                    icon: Icon(
+                      Icons.notifications,
+                      color: colorScheme.inverseSurface,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

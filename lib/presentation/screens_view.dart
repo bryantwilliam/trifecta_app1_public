@@ -39,17 +39,38 @@ class _ScreensViewState extends State<ScreensView> {
         currentIndex: _screenIndex,
         items: [
           SalomonBottomBarItem(
-            icon: const Icon(Icons.add_to_home_screen_rounded),
+            icon: Icon(
+              Icons.add_to_home_screen_rounded,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+            activeIcon: Icon(
+              Icons.add_to_home_screen_rounded,
+              color: Theme.of(context).primaryColor,
+            ),
             title: const Text('Single'),
             selectedColor: Theme.of(context).primaryColor,
           ),
           SalomonBottomBarItem(
-            icon: const Icon(Icons.looks_two_rounded),
+            icon: Icon(
+              Icons.looks_two_rounded,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+            activeIcon: Icon(
+              Icons.looks_two_rounded,
+              color: Theme.of(context).primaryColor,
+            ),
             title: const Text('Double'),
             selectedColor: Theme.of(context).primaryColor,
           ),
           SalomonBottomBarItem(
-            icon: const Icon(Icons.account_tree_rounded),
+            icon: Icon(
+              Icons.account_tree_rounded,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+            activeIcon: Icon(
+              Icons.account_tree_rounded,
+              color: Theme.of(context).primaryColor,
+            ),
             title: const Text('Assorted'),
             selectedColor: Theme.of(context).primaryColor,
           ),

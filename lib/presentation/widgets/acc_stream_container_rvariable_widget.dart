@@ -3,8 +3,8 @@ import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 
-class ACCStreamContainerWidget extends StatelessWidget {
-  const ACCStreamContainerWidget({
+class ACCStreamContainerRVariableWidget extends StatelessWidget {
+  const ACCStreamContainerRVariableWidget({
     required this.width,
     required this.runtimeVariablesEnabled,
     required this.containerId,
@@ -21,10 +21,11 @@ class ACCStreamContainerWidget extends StatelessWidget {
       child: AACStreamContainer(
         runtimeVariableDelegate:
             runtimeVariablesEnabled ? _CardRuntimeVariableDelegate() : null,
-        configuration: AtomicConfiguration.getConfiguration(
-          runtimeVariablesEnabled
+        configuration: AtomicConfiguration.getStreamContainerConfiguration(
+          title: runtimeVariablesEnabled
               ? 'Runtime variables: on'
               : 'Runtime variables: off',
+          footer: 'Footer',
         ),
         containerId: AtomicConfiguration.containerId1,
       ),
