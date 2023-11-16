@@ -1,10 +1,10 @@
-import 'package:atomic_sdk_flutter/atomic_single_card_view.dart';
-import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 import 'package:trifecta_app1/data/providers/user_metric_future_provider.dart';
 import 'package:trifecta_app1/presentation/widgets/card_dialog.dart';
+import 'package:trifecta_app1/presentation/widgets/rotated_stream_container_widget.dart';
+import 'package:trifecta_app1/presentation/widgets/single_card_view_widget.dart';
 
 class AssortedStreamScreen extends ConsumerStatefulWidget {
   const AssortedStreamScreen({super.key});
@@ -106,81 +106,31 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
               ),
             ],
           ),
-          const Text('Two shrunk single card views'),
+          const Text('Two shrunken single card views'),
           FittedBox(
             child: Row(
               children: [
-                SizedBox(
+                SingleCardView(
                   height: screenSize.height * 0.32,
                   width: screenSize.width,
-                  child: AACSingleCardView(
-                    containerId: AtomicConfiguration.containerId4,
-                    configuration:
-                        AtomicConfiguration.getSingleCardConfiguration(),
-                  ),
+                  containerId: AtomicConfiguration.containerId4,
                 ),
-                SizedBox(
+                SingleCardView(
                   height: screenSize.height * 0.32,
                   width: screenSize.width,
-                  child: AACSingleCardView(
-                    containerId: AtomicConfiguration.containerId4,
-                    configuration:
-                        AtomicConfiguration.getSingleCardConfiguration(),
-                  ),
+                  containerId: AtomicConfiguration.containerId4,
                 ),
               ],
             ),
           ),
-          const Text('One horizontal stream container'),
-          RotatedBox(
-            quarterTurns: 1,
-            child: SizedBox(
-              // Since it's rotated, width becomes height and height becomes width.
-              width: screenSize.height * 0.3,
-              height: screenSize.width,
-              child: AACStreamContainer(
-                containerId: AtomicConfiguration.containerId4,
-                configuration:
-                    AtomicConfiguration.getStreamContainerConfiguration(
-                  header: 'Horizontal list',
-                ),
-              ),
-            ),
-          ),
-          const Text('Two shrunk horizontal stream containers'),
-          FittedBox(
+          const Text('One rotated stream container'),
+          const RotatedStreamContainer(),
+          const Text('Two shrunken rotated stream containers'),
+          const FittedBox(
             child: Row(
               children: [
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: SizedBox(
-                    // Since it's rotated, width becomes height and height becomes width.
-                    width: screenSize.height * 0.34,
-                    height: screenSize.width,
-                    child: AACStreamContainer(
-                      containerId: AtomicConfiguration.containerId4,
-                      configuration:
-                          AtomicConfiguration.getStreamContainerConfiguration(
-                        header: 'Horizontal cards',
-                      ),
-                    ),
-                  ),
-                ),
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: SizedBox(
-                    // Since it's rotated, width becomes height and height becomes width.
-                    width: screenSize.height * 0.34,
-                    height: screenSize.width,
-                    child: AACStreamContainer(
-                      containerId: AtomicConfiguration.containerId4,
-                      configuration:
-                          AtomicConfiguration.getStreamContainerConfiguration(
-                        header: 'Horizontal cards',
-                      ),
-                    ),
-                  ),
-                ),
+                RotatedStreamContainer(),
+                RotatedStreamContainer(),
               ],
             ),
           ),

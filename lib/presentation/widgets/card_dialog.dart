@@ -1,7 +1,6 @@
-import 'package:atomic_sdk_flutter/atomic_single_card_view.dart';
-import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
-import 'package:trifecta_app1/data/atomic_configuration.dart';
+import 'package:trifecta_app1/presentation/widgets/single_card_view_widget.dart';
+import 'package:trifecta_app1/presentation/widgets/stream_container_widget.dart';
 
 class CardDialog extends StatelessWidget {
   const CardDialog({
@@ -26,14 +25,11 @@ class CardDialog extends StatelessWidget {
       content: SizedBox(
         width: screenSize.width * 0.85,
         child: isSingle
-            ? AACSingleCardView(
+            ? SingleCardView(
                 containerId: containerId,
-                configuration: AtomicConfiguration.getSingleCardConfiguration(),
               )
-            : AACStreamContainer(
+            : StreamContainer(
                 containerId: containerId,
-                configuration:
-                    AtomicConfiguration.getStreamContainerConfiguration(),
               ),
       ),
       actions: [
