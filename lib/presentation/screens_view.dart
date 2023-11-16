@@ -1,6 +1,7 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:trifecta_app1/presentation/bottom_bar_item.dart';
 import 'package:trifecta_app1/presentation/screens/assorted_stream_screen.dart';
 import 'package:trifecta_app1/presentation/screens/double_stream_screen.dart';
 import 'package:trifecta_app1/presentation/screens/single_stream_screen.dart';
@@ -38,42 +39,9 @@ class _ScreensViewState extends State<ScreensView> {
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _screenIndex,
         items: [
-          SalomonBottomBarItem(
-            icon: Icon(
-              Icons.add_to_home_screen_rounded,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-            activeIcon: Icon(
-              Icons.add_to_home_screen_rounded,
-              color: Theme.of(context).primaryColor,
-            ),
-            title: const Text('Single'),
-            selectedColor: Theme.of(context).primaryColor,
-          ),
-          SalomonBottomBarItem(
-            icon: Icon(
-              Icons.looks_two_rounded,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-            activeIcon: Icon(
-              Icons.looks_two_rounded,
-              color: Theme.of(context).primaryColor,
-            ),
-            title: const Text('Double'),
-            selectedColor: Theme.of(context).primaryColor,
-          ),
-          SalomonBottomBarItem(
-            icon: Icon(
-              Icons.account_tree_rounded,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-            activeIcon: Icon(
-              Icons.account_tree_rounded,
-              color: Theme.of(context).primaryColor,
-            ),
-            title: const Text('Assorted'),
-            selectedColor: Theme.of(context).primaryColor,
-          ),
+          BottomBarItem(context, Icons.add_to_home_screen_rounded, 'Single'),
+          BottomBarItem(context, Icons.looks_two_rounded, 'Double'),
+          BottomBarItem(context, Icons.account_tree_rounded, 'Assorted'),
         ],
         onTap: (index) {
           if (index == 2 || _screenIndex == 2) {
