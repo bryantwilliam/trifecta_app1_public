@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 import 'package:trifecta_app1/data/providers/user_metric_future_provider.dart';
-import 'package:trifecta_app1/presentation/widgets/acc_stream_container_rvariable_widget.dart';
+import 'package:trifecta_app1/presentation/widgets/atomic_containers/acc_stream_rvariable_container.dart';
 import 'package:trifecta_app1/presentation/widgets/async_user_metrics_widget.dart';
 import 'package:trifecta_app1/presentation/widgets/card_count_widget.dart';
 import 'package:trifecta_app1/presentation/widgets/screen_description_widget.dart';
@@ -30,7 +30,7 @@ class SingleStreamScreen extends ConsumerWidget {
               Expanded(
                 child: Crab(
                   tag: 'stream-1',
-                  child: ACCStreamContainerRVariableWidget(
+                  child: ACCStreamRVariableContainer(
                     runtimeVariablesEnabled: false,
                     width: screenSize.width,
                     containerId: AtomicConfiguration.containerId1,
