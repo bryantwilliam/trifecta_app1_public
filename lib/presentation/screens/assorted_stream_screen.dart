@@ -89,6 +89,20 @@ class _AssortedStreamScreenState extends ConsumerState<AssortedStreamScreen>
             ],
           ),
           Text('$_cardViewCount shrunken single card views'),
+          Row(
+            children: <Widget>[
+              if (_cardViewCount > 2)
+                IconButton(
+                  icon: const Icon(Icons.remove),
+                  onPressed: () => setState(() => _cardViewCount--),
+                )
+              else
+                Container(),
+              IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () => setState(() => _cardViewCount++))
+            ],
+          ),
           FittedBox(
             child: Row(
               children: List<SingleCardView>.filled(
