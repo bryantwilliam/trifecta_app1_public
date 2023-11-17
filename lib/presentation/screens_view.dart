@@ -31,6 +31,7 @@ class _ScreensViewState extends State<ScreensView> {
       ),
       body: SafeArea(
         child: Coast(
+          physics: const NeverScrollableScrollPhysics(),
           controller: _coastController,
           beaches: _screens,
           observers: [CrabController()],

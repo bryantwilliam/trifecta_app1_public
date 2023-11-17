@@ -3,21 +3,18 @@ import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 
-class ACCStreamRVariableContainer extends StatelessWidget {
-  const ACCStreamRVariableContainer({
-    required this.width,
+class ACCStreamRVariableContainer1 extends StatelessWidget {
+  const ACCStreamRVariableContainer1({
     required this.runtimeVariablesEnabled,
-    required this.containerId,
     super.key,
   });
-  final double width;
+
   final bool runtimeVariablesEnabled;
-  final String containerId;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
+      width: MediaQuery.of(context).size.width,
       child: AACStreamContainer(
         runtimeVariableDelegate:
             runtimeVariablesEnabled ? _CardRuntimeVariableDelegate() : null,
