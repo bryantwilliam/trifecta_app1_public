@@ -2,18 +2,7 @@ import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-class SecretConfig {
-  SecretConfig({
-    required this.apiKey,
-    required this.userId,
-    required this.apiUrl,
-  });
-
-  final String apiKey;
-  final String userId;
-  final String apiUrl;
-}
+import 'package:trifecta_app1/data/models/secret_config.dart';
 
 class AtomicConfiguration {
   static const environmentId = '1YlBd6Vd';
