@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 import 'package:trifecta_app1/data/providers/user_metric_future_provider.dart';
 import 'package:trifecta_app1/presentation/widgets/async_user_metrics_widget.dart';
-import 'package:trifecta_app1/presentation/widgets/atomic_containers/acc_stream_rvariable_container1.dart';
+import 'package:trifecta_app1/presentation/widgets/atomic_containers/acc_stream_rvariable_container.dart';
 import 'package:trifecta_app1/presentation/widgets/card_count_widget.dart';
 import 'package:trifecta_app1/presentation/widgets/screen_description_widget.dart';
 
@@ -39,7 +39,7 @@ class _DoubleStreamScreenState extends ConsumerState<DoubleStreamScreen>
               const Expanded(
                 child: Crab(
                   tag: 'stream-1',
-                  child: ACCStreamRVariableContainer1(
+                  child: ACCStreamRVariableContainer(
                     runtimeVariablesEnabled: false,
                   ),
                 ),
@@ -53,7 +53,7 @@ class _DoubleStreamScreenState extends ConsumerState<DoubleStreamScreen>
                 ),
               ),
               const Expanded(
-                child: ACCStreamRVariableContainer1(
+                child: ACCStreamRVariableContainer(
                   runtimeVariablesEnabled: true,
                 ),
               ),

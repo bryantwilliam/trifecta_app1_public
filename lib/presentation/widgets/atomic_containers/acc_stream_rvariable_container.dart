@@ -3,8 +3,8 @@ import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 
-class ACCStreamRVariableContainer1 extends StatelessWidget {
-  const ACCStreamRVariableContainer1({
+class ACCStreamRVariableContainer extends StatelessWidget {
+  const ACCStreamRVariableContainer({
     required this.runtimeVariablesEnabled,
     super.key,
   });
