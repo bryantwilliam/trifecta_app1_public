@@ -1,10 +1,10 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:trifecta_app1/presentation/bottom_bar_item.dart';
-import 'package:trifecta_app1/presentation/screens/assorted_stream_screen.dart';
-import 'package:trifecta_app1/presentation/screens/double_stream_screen.dart';
-import 'package:trifecta_app1/presentation/screens/single_stream_screen.dart';
+import 'package:trifecta_app1/ui/bottom_bar_item.dart';
+import 'package:trifecta_app1/ui/screens/assorted_stream_screen.dart';
+import 'package:trifecta_app1/ui/screens/double_stream_screen.dart';
+import 'package:trifecta_app1/ui/screens/single_stream_screen.dart';
 
 class ScreensView extends StatefulWidget {
   const ScreensView({super.key});

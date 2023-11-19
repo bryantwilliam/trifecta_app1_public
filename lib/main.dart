@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:trifecta_app1/presentation/screens_view.dart';
+import 'package:trifecta_app1/ui/screens_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

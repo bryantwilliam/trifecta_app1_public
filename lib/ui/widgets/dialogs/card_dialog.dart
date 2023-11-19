@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trifecta_app1/presentation/widgets/atomic_containers/single_card_view.dart';
-import 'package:trifecta_app1/presentation/widgets/atomic_containers/stream_container.dart';
+import 'package:trifecta_app1/ui/widgets/atomic_containers/single_card_view.dart';
+import 'package:trifecta_app1/ui/widgets/atomic_containers/stream_container.dart';
 
 class CardDialog extends StatelessWidget {
   const CardDialog({
