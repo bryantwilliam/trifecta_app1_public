@@ -5,6 +5,20 @@ assets/jwtRS512.key
 # ENV
 *.env
 
+# Other build artifacts 
+# - delete these if using your own git repository!
+/android/.gradle/
+/android/app/src/main/res/
+/android/gradle/
+/android/app/src/profile/
+/android/app/src/debug/
+/android/settings.gradle
+/android/gradle.properties
+/ios/Runner/
+/ios/Runner.*/
+/ios/RunnerTests/
+/ios/Flutter/
+
 # Miscellaneous
 *.class
 *.log
