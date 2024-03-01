@@ -5,6 +5,7 @@ import 'package:trifecta_app1/ui/bottom_bar_item.dart';
 import 'package:trifecta_app1/ui/screens/assorted_stream_screen.dart';
 import 'package:trifecta_app1/ui/screens/double_stream_screen.dart';
 import 'package:trifecta_app1/ui/screens/single_stream_screen.dart';
+import 'package:trifecta_app1/ui/screens/single_view_screen.dart';
 
 class ScreensView extends StatefulWidget {
   const ScreensView({super.key});
@@ -20,6 +21,7 @@ class _ScreensViewState extends State<ScreensView> {
     Beach(builder: (context) => const SingleStreamScreen()),
     Beach(builder: (context) => const DoubleStreamScreen()),
     Beach(builder: (context) => const AssortedStreamScreen()),
+    Beach(builder: (context) => const SingleViewScreen()),
   ];
   final _coastController = CoastController();
 
@@ -43,6 +45,7 @@ class _ScreensViewState extends State<ScreensView> {
           BottomBarItem(context, Icons.add_to_home_screen_rounded, 'Single'),
           BottomBarItem(context, Icons.looks_two_rounded, 'Double'),
           BottomBarItem(context, Icons.account_tree_rounded, 'Assorted'),
+          BottomBarItem(context, Icons.one_x_mobiledata_rounded, 'Single V'),
         ],
         onTap: (index) {
           if (index == 2 || _screenIndex == 2) {
