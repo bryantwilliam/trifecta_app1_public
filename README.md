@@ -1,5 +1,9 @@
 # trifecta_app1_public
 
+My work, Atomic.io, we have a Flutter SDK, which I am the product owner of. I made this demo app to showcase our Flutter SDK.
+
+---
+
 First demo app for Atomic.io
 
 In the app root directory, remember to create a `.env` file with the following set:
