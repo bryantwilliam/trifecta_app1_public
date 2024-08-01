@@ -34,7 +34,7 @@ Future<void> _login() async {
   logger.t('login success');
 }
 
-class _AACSessionDelegate extends AACSessionDelegate {
+class _AACSessionDelegate with AACSessionDelegate {
   @override
   Future<String> authToken() {
     return AtomicConfiguration.token;

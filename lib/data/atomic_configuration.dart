@@ -1,3 +1,4 @@
+import 'package:atomic_sdk_flutter/atomic_single_card_view.dart';
 import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/services.dart';
