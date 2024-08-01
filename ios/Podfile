@@ -45,4 +45,4 @@ post_install do |installer|
   end
 end
 
-pod 'AtomicSDK', '1.1.8'
+pod 'AtomicSDK', '24.2.0'
