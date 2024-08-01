@@ -30,7 +30,7 @@ class ACCStreamRVariableContainer extends StatelessWidget {
   }
 }
 
-class _CardRuntimeVariableDelegate extends AACRuntimeVariableDelegate {
+class _CardRuntimeVariableDelegate with AACRuntimeVariableDelegate {
   @override
   Future<List<AACCardInstance>> requestRuntimeVariables(
     List<AACCardInstance> cardInstances,
