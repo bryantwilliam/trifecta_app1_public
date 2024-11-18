@@ -1,6 +1,6 @@
 # trifecta_app1_public
 
-My work, Atomic.io, has a Flutter SDK - which I am the product owner of. I made this demo app to showcase our Flutter SDK.
+I made this demo app to showcase Atomic.io's Flutter SDK.
 
 ---
 
