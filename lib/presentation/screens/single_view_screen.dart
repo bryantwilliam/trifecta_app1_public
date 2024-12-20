@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
 import 'package:trifecta_app1/data/providers/user_metric_future_provider.dart';
-import 'package:trifecta_app1/ui/widgets/async_user_metrics_widget.dart';
-import 'package:trifecta_app1/ui/widgets/atomic_containers/single_card_view.dart';
-import 'package:trifecta_app1/ui/widgets/card_count_widget.dart';
-import 'package:trifecta_app1/ui/widgets/screen_description_widget.dart';
+import 'package:trifecta_app1/presentation/widgets/async_user_metrics_widget.dart';
+import 'package:trifecta_app1/presentation/widgets/atomic_containers/single_card_view.dart';
+import 'package:trifecta_app1/presentation/widgets/card_count_widget.dart';
+import 'package:trifecta_app1/presentation/widgets/screen_description_widget.dart';
 
 class SingleViewScreen extends ConsumerWidget {
   const SingleViewScreen({super.key});

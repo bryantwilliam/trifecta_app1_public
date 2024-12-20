@@ -1,7 +1,7 @@
 import 'package:atomic_sdk_flutter/atomic_stream_container.dart';
 import 'package:flutter/material.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
-import 'package:trifecta_app1/ui/widgets/atomic_containers/atomic_container.dart';
+import 'package:trifecta_app1/presentation/widgets/atomic_containers/atomic_container.dart';
 
 class StreamContainer extends AtomicContainer {
   const StreamContainer({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trifecta_app1/data/atomic_configuration.dart';
-import 'package:trifecta_app1/ui/widgets/atomic_containers/stream_container.dart';
+import 'package:trifecta_app1/presentation/widgets/atomic_containers/stream_container.dart';
 
 class RotatedStreamContainer extends StatelessWidget {
   const RotatedStreamContainer({super.key});
