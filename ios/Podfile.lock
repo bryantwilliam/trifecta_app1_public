@@ -1,13 +1,13 @@
 PODS:
   - atomic_sdk_flutter (1.0.0):
-    - AtomicSDK (= 1.1.8)
+    - AtomicSDK (= 24.2.0)
     - Flutter
-  - AtomicSDK (1.1.8)
+  - AtomicSDK (24.2.0)
   - Flutter (1.0.0)
 
 DEPENDENCIES:
   - atomic_sdk_flutter (from `.symlinks/plugins/atomic_sdk_flutter/ios`)
-  - AtomicSDK (= 1.1.8)
+  - AtomicSDK (= 24.2.0)
   - Flutter (from `Flutter`)
 
 SPEC REPOS:
@@ -21,10 +21,10 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  atomic_sdk_flutter: 1f4d1d4ab01a559f5846ad41eda22dcff09ed7a9
-  AtomicSDK: ff592473a33ce1782b3e1a18df223573c116cb95
+  atomic_sdk_flutter: 80746290f1700e76655760b33d0a106d98ba1de6
+  AtomicSDK: 7673e721b8d658ca9ddb0bb2b37b903c05202967
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
 
-PODFILE CHECKSUM: 16d714cf3e64b65c41d2c041bd11e4f93fba2df4
+PODFILE CHECKSUM: 20d73c85e04ad6e64fc350c85cc2042a46429669
 
 COCOAPODS: 1.15.2
